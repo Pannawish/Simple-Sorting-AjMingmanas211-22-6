@@ -1,18 +1,28 @@
-#define N 6
 #include <iostream>
+#include <string.h>
 using namespace std;
 #include "sorting.h"
+#include <chrono>
+using namespace std;
+using namespace std::chrono;
 
-int main() {
-  int a[N]={3,2,6,7,3,1};
-  int i,j,new_number;
+int main(int argc,char ** argv) {
+  auto start = high_resolution_clock::now();
+  int i;
+  int N=argc-1;
+  int *a = new int [N];
+  for(i=1;i<argc;i++)
+    a[i-1]=atoi(argv[i]);
 
-   display(a,N);
-  bubbleSort(a,N); 
-   //insertion(a,N);
 
-  // selectionSort(a,N);
-  // display(a,N);
+  //bubbleSort(a,N); 
+  //insertion(a,N);
+  selectionSort(a,N);
+  auto stop = high_resolution_clock::now();
+  auto duration = duration_cast<microseconds>(stop - start);
+  cout << "Time taken by function: "
+         << duration.count() << " microseconds" << endl;
+  return 0;
 }
 
 // new number =2 
