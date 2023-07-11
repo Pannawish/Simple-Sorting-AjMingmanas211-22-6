@@ -50,6 +50,7 @@ void insertion(int a[],int n){
  int i,j;
   for(i=1;i<n;i++){
     int value=a[i];
+    display(a,n);
     for(j=i-1;j>=0;j--){
       if(a[j]>value)
         a[j+1]=a[j];
@@ -57,7 +58,8 @@ void insertion(int a[],int n){
       display(a,n);
         }
   a[j+1]=value;
-  display(a,n);
+    display(a,n);
+  //display(a,n);
   cout<<"==========================================================="<<endl;
 }
 }
@@ -65,7 +67,7 @@ void insertion(int a[],int n){
 void bubbleSort(int *a,int n){
 
 int i,j;
-// how may pair to compare?
+// how many pair to compare?
 int sorted;
 for(i=0;i<n-1;i++)
 {
@@ -75,9 +77,11 @@ for(i=0;i<n-1;i++)
     if(a[j]>a[j+1]){
     swap(a[j],a[j+1]);
     sorted=1;
+      
     }
 
   }  
+  display(a,n);
   cout<<"============"<<endl;
     
   if (sorted == 0) break;
@@ -85,6 +89,8 @@ for(i=0;i<n-1;i++)
 }
 
 //merge sort
+// This code is contributed by Mayank Tyagi
+// This code was revised by Joshua Estes
 // Merges two subarrays of array[].
 // First subarray is arr[begin..mid]
 // Second subarray is arr[mid+1..end]
